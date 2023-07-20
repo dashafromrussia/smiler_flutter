@@ -1,7 +1,7 @@
 # smiler_flutter
 
 A new Flutter project.
-Using back node.js smileeer_node in this repository.
+Using back node.js smileeer_node in this profile.
 
 ## Getting Started
 
