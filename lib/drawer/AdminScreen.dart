@@ -268,6 +268,7 @@ class _HomePageState extends State<HomePage> {
                       String datat = DateTime.now().toString();
                       datat = datat.substring(0,10);
                       List<String> list = datat.split("-").reversed.toList();
+                      String timeNow = datat.split("-").reversed.toList().join('-');
                       String? videoId = getIdFromUrl(video);
                    final Map<String,String> result = {"category":_verticalGroupValue,"title":title.trim(),
                      "about":describe.trim(),"tags":tags.trim().toLowerCase(),"time":list.join('-'),"video":videoId ?? '',"image":imgBytes.toString()};

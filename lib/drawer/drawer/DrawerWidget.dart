@@ -61,7 +61,7 @@ class DataWidget extends StatelessWidget {
               }
 
               if(select=='Main'){
-                Navigator.pushReplacementNamed(context, navigate,arguments: {'tag':'all'});
+                Navigator.pushReplacementNamed(context, navigate,arguments: {'tag':'all','cat':'video'});
               }else{
                 Navigator.pushReplacementNamed(context, navigate);
               }

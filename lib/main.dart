@@ -154,7 +154,7 @@ class _AppState extends State<MyApp> {
   };
 
 
-  Route<Object> onGenerateRoute(RouteSettings settings) {
+  Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case MainNavigationRouteNames.tag:
         final arguments = settings.arguments;

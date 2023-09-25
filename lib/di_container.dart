@@ -22,6 +22,7 @@ import 'package:smiler_flutter/drawer/drawer/DrawerWidget.dart';
 import 'package:smiler_flutter/drawer/AdminScreen.dart';
 import 'package:smiler_flutter/drawer/MainScreen.dart';
 import 'package:http/http.dart' as http;
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 AppFactory makeAppFactory() => _AppFactoryDefault();
 
@@ -66,7 +67,7 @@ class _DIContainer {
 
   AdminBloc _makeAdminBloc()=> AdminBloc(remoteConfing: _makeRemote);
 
-  MainBloc _makeMainBloc(String tag, String cat)=> MainBloc(remoteConfing: _makeRemote,tag: tag,cat: cat);
+  MainBloc _makeMainBloc(String tag, String cat)=> MainBloc(remoteConfing: _makeRemote,tag: tag,cat: cat,conn: Connectivity());
 
   TabBloc _makeTabBlock(String cat)=> TabBloc(cat: cat);
 

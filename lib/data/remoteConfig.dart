@@ -67,7 +67,7 @@ class DataBaseConfig implements RemoteConfing {
  Future<int> sendDataForIsolate(Map<String,dynamic> parameters,String dataUrl)async{
     parameters['likes'] = jsonEncode(parameters['likes']);
    final String parameterss = jsonEncode(parameters);
-    var uri = Uri.http('192.168.0.111:3500', dataUrl);
+    var uri = Uri.http('192.168.0.113:3500', dataUrl);
     final response = await client
         .post(uri, headers: {"Access-Control-Allow-Origin": "*",
       'Content-Type': 'application/json; charset=UTF-8',
@@ -108,7 +108,7 @@ class DataBaseConfig implements RemoteConfing {
   Future<Map<String,dynamic>> getOneDataForIsolate(Map<String,dynamic> parameters)async{
     try {
       final String parameterss = jsonEncode(parameters);
-      var uri = Uri.http('192.168.0.111:3500', 'oneart');
+      var uri = Uri.http('192.168.0.113:3500', 'oneart');
       final response = await client
           .post(uri, headers: {"Access-Control-Allow-Origin": "*",
         'Content-Type': 'application/json; charset=UTF-8',
@@ -198,7 +198,7 @@ class DataBaseConfig implements RemoteConfing {
   Future<List<Map<String,dynamic>>> getDataForIsolate(Map<String,dynamic> parameters)async{
     try {
        final String parameterss = jsonEncode(parameters);
-      var uri = Uri.http('192.168.0.111:3500', 'selectdata');
+      var uri = Uri.http('192.168.0.113:3500', 'selectdata');
       final response = await client
           .post(uri, headers: {"Access-Control-Allow-Origin": "*",
         'Content-Type': 'application/json; charset=UTF-8',
@@ -315,7 +315,7 @@ StreamController <List<Map<String,dynamic>>> returnData(){
     try {
       parameters['likes'] = jsonEncode(parameters['likes']);
       String resParams =jsonEncode(parameters);
-      var uri = Uri.http('192.168.0.111:3500', dataUrl);
+      var uri = Uri.http('192.168.0.113:3500', dataUrl);
       final response = await client
           .post(uri, headers: {"Access-Control-Allow-Origin": "*",
         'Content-Type': 'application/json; charset=UTF-8',
@@ -340,7 +340,7 @@ StreamController <List<Map<String,dynamic>>> returnData(){
     try {
       String resParams =jsonEncode(parameters);
       print("paramsss${resParams}");
-      var uri = Uri.http('192.168.0.111:3500', dataUrl);
+      var uri = Uri.http('192.168.0.113:3500', dataUrl);
       final response = await client
           .post(uri, headers: {"Access-Control-Allow-Origin": "*",
         'Content-Type': 'application/json; charset=UTF-8',
@@ -390,7 +390,7 @@ Future<void> getView(int view,int id)async{
   Future<List<Map<String,dynamic>>> getCommentForIsolate(Map<String,dynamic> parameters)async{
     try {
       final String parameterss = jsonEncode(parameters);
-      var uri = Uri.http('192.168.0.111:3500', 'loadpostcomments');
+      var uri = Uri.http('192.168.0.113:3500', 'loadpostcomments');
       final response = await client
           .post(uri, headers: {"Access-Control-Allow-Origin": "*",
         'Content-Type': 'application/json; charset=UTF-8',
@@ -434,7 +434,7 @@ Future<void> getView(int view,int id)async{
 
   Future<int> sendCommentForIsolate(Map<String,dynamic> parameters,String dataUrl)async{
     final String parameterss = jsonEncode(parameters);
-    var uri = Uri.http('192.168.0.111:3500', dataUrl);
+    var uri = Uri.http('192.168.0.113:3500', dataUrl);
     final response = await client
         .post(uri, headers: {"Access-Control-Allow-Origin": "*",
       'Content-Type': 'application/json; charset=UTF-8',
@@ -474,7 +474,7 @@ Future<void> getView(int view,int id)async{
   Future<List<Map<String,dynamic>>> getTagDataForIsolate(Map<String,dynamic> parameters)async{
     try {
       final String parameterss = jsonEncode(parameters);
-      var uri = Uri.http('192.168.0.111:3500', 'selectcat');
+      var uri = Uri.http('192.168.0.113:3500', 'selectcat');
       final response = await client
           .post(uri, headers: {"Access-Control-Allow-Origin": "*",
         'Content-Type': 'application/json; charset=UTF-8',

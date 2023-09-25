@@ -6,7 +6,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:smiler_flutter/bloc/admin_bloc.dart';
 import 'package:smiler_flutter/data/remoteConfig.dart';
-
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 /*abstract class MainEvent extends Equatable {
   const MainEvent();
@@ -310,14 +310,16 @@ class ErrorState extends MainState {
 class MainBloc extends Bloc<MainEvent,MainState>{
   final String cat;
   final String tag;
+  final Connectivity conn;
   RemoteConfing remoteConfing;
     List<Map<String,dynamic>> categoryData = [];
     String category = 'Случайные';
-  MainBloc({required this.remoteConfing,required this.tag,required this.cat}) : super(const MiddleState()) {
+  MainBloc({required this.remoteConfing,required this.tag,required this.cat,required this.conn}) : super(const MiddleState()) {
     on<MainEvent>((event,emit)async{
       print('gggfffff');
       if(event is GetDataEvent){
         try{
+          final resInet = await conn.checkConnectivity().then((value) => print("INETTTT$value"));
           List<Map<String,dynamic>> data = await remoteConfing.getTagData(event.cat, event.off);
           if(tag=='all'){
             add(GetSuccess(data:data));
@@ -347,6 +349,7 @@ class MainBloc extends Bloc<MainEvent,MainState>{
         //emit(const MiddleState());
         List<Map<String,dynamic>> data;
         try{
+
           data = await remoteConfing.getTagData(event.cat, event.off);
           if(tag=='all'){
           }else{
